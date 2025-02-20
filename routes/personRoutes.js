@@ -7,7 +7,7 @@ const Person = require("./../models/person");
 router.post("/", async (req, res) => {
   try {
     const data = req.body;
-    const newPerson = new Person(~data);
+    const newPerson = new Person(data);
 
     const response = await newPerson.save();
     console.log("data saved");
@@ -31,7 +31,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 //Read or Get Method
 
 router.get("/:workType", async (req, res) => {
@@ -49,7 +48,6 @@ router.get("/:workType", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
 
 // Update Method
 router.put("/:id", async (req, res) => {
@@ -78,7 +76,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//Delete Method 
+//Delete Method
 
 router.delete("/:id", async (req, res) => {
   try {
